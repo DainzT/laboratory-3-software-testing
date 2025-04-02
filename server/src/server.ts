@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import surveyRoutes from "../src/routers/surveyRoute"
-import employRoute from "./routers/employRoute"
+import surveyRoutes from "./routes/surveyRoutes"
+import employRoute from "./routes/employeeRoutes"
 
 dotenv.config();
 
