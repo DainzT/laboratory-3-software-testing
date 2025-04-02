@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use('/api', employeeRoutes);
 
-describe("POST /add - Creation of Employee", () => {
+describe("POST /api/add - Creation of Employee", () => {
 
     beforeEach(async () => {
         await prisma.employee.deleteMany();
