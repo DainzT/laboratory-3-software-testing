@@ -1,9 +1,7 @@
-import { PrismaClient } from "@prisma/client";
+import prisma from "../lib/prisma";
 import { Router, Request, Response } from "express"; 
 
 const router: Router = Router(); 
-const prisma = new PrismaClient();
-
 router.post("/add", async (req: Request, res: Response) => {
     console.log("Received request body:", req.body); 
     try {
