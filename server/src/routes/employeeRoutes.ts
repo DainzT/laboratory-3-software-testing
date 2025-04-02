@@ -13,6 +13,11 @@ router.post("/add", async (req: Request, res: Response) => {
             return;
         }
 
+        if (isNaN(Number(expectedSalary))) {
+            res.status(400).json({ error: "Salary must be a valid number" });
+            return;
+        }
+
         const newEmployee = await prisma.employee.create({
             data: {
                 firstName: firstName,
