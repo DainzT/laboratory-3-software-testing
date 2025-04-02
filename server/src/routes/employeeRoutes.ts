@@ -1,3 +1,4 @@
+import { Prisma } from "@prisma/client";
 import prisma from "../lib/prisma";
 import { Router, Request, Response } from "express"; 
 
@@ -49,7 +50,12 @@ router.get("/retrieve", async (req: Request, res: Response) => {
 
 router.delete("/delete/:id", async (req: Request, res: Response) => {
     const { id } = req.params;
-    console.log(id)
+
+    if (!id.match(/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$/)) {
+        res.status(400).json({ error: "Invalid ID format" });
+        return;
+    }
+
     try {
         const deletedEmployee = await prisma.employee.delete({
             where: { id },
@@ -57,6 +63,15 @@ router.delete("/delete/:id", async (req: Request, res: Response) => {
 
         res.status(200).json(deletedEmployee);
     } catch (error) {
+        if (error instanceof Prisma.PrismaClientKnownRequestError) {
+            if (error.code === 'P2025') {
+                res.status(404).json({ 
+                    error: "Employee not found",
+                });
+                return;
+            }
+        }
+
         console.error("Error deleting employee:", error);
         res.status(500).json({ error: "Failed to delete employee" });
     }
