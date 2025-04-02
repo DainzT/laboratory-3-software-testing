@@ -2,7 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import surveyRoutes from "../src/routers/surveyRoute"
-import employeesRoute from "../src/routers/employeesRoute"
 import employRoute from "./routers/employRoute"
 
 dotenv.config();
@@ -13,8 +12,6 @@ app.use(express.json());
 
 
 app.use("/api/survey", surveyRoutes)
-
-app.use("/api/ems", employeesRoute)
 
 app.use("/api/employees", employRoute)
 
