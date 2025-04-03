@@ -210,6 +210,10 @@ describe("Employee API", () => {
       employeeId = employee.id;
     });
 
+    afterEach(async () => {
+      await prisma.employee.deleteMany();
+    });
+
     it("POSITIVE: should update employee and return updated data", async () => {
       const response = await request(app)
         .put(`/api/update/${employeeId}`)
