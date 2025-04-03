@@ -46,7 +46,6 @@ router.post("/add", async (req: Request, res: Response) => {
 
     res.status(201).json(newEmployee);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -56,7 +55,6 @@ router.get("/retrieve", async (req: Request, res: Response) => {
     const employees = await prisma.employee.findMany();
     res.status(200).json(employees);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -96,7 +94,6 @@ router.put("/update/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   const updateData = req.body;
 
-  // Validate ID format (UUID)
   if (
     !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
       id
@@ -107,7 +104,6 @@ router.put("/update/:id", async (req: Request, res: Response) => {
   }
 
   try {
-    // First check if employee exists
     const existingEmployee = await prisma.employee.findUnique({
       where: { id },
     });
@@ -125,7 +121,6 @@ router.put("/update/:id", async (req: Request, res: Response) => {
     res.json(updatedEmployee);
     return;
   } catch (error) {
-    console.error("Error updating employee:", error);
     res.status(500).json({ error: "Failed to update employee" });
     return;
   }

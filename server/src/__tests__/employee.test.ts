@@ -159,10 +159,10 @@ describe("Employee API", () => {
     it("POSITIVE: should return all employees", async () => {
       await prisma.employee.create({
         data: {
-          firstName: "Alice",
-          lastName: "Smith",
+          firstName: "Dainz",
+          lastName: "Ddemizer",
           groupName: "HR",
-          role: "Manager",
+          role: "Project Manager",
           expectedSalary: 6000,
           expectedDateOfDefense: new Date("2025-10-15"),
         },
@@ -173,7 +173,7 @@ describe("Employee API", () => {
       expect(response.status).toBe(200);
       expect(Array.isArray(response.body)).toBe(true);
       expect(response.body.length).toBe(1);
-      expect(response.body[0].firstName).toBe("Alice");
+      expect(response.body[0].firstName).toBe("Dainz");
     });
 
     it("NEGATIVE: should return empty array when no employees exist", async () => {
@@ -199,10 +199,10 @@ describe("Employee API", () => {
     beforeEach(async () => {
       const employee = await prisma.employee.create({
         data: {
-          firstName: "Original",
-          lastName: "Employee",
+          firstName: "DainzT",
+          lastName: "TheDestroyer",
           groupName: "IT",
-          role: "Admin",
+          role: "THE CEO",
           expectedSalary: 4000,
           expectedDateOfDefense: new Date("2025-09-01"),
         },
@@ -214,20 +214,20 @@ describe("Employee API", () => {
       const response = await request(app)
         .put(`/api/update/${employeeId}`)
         .send({
-          firstName: "Updated",
-          role: "Senior Admin",
+          firstName: "THE",
+          role: "BOSS",
         });
 
       expect(response.status).toBe(200);
-      expect(response.body.firstName).toBe("Updated");
-      expect(response.body.role).toBe("Senior Admin");
+      expect(response.body.firstName).toBe("THE");
+      expect(response.body.role).toBe("BOSS");
     });
 
     it("NEGATIVE: should return 404 for non-existent employee", async () => {
       await prisma.employee.deleteMany();
       const response = await request(app)
         .put(`/api/update/${employeeId}`)
-        .send({ firstName: "Test" });
+        .send({ firstName: "Dainz" });
 
       expect(response.status).toBe(404);
       expect(response.body.error).toBeDefined();
@@ -236,7 +236,7 @@ describe("Employee API", () => {
     it("NEGATIVE: should return 400 for invalid ID format", async () => {
       const response = await request(app)
         .put("/api/update/invalid-id")
-        .send({ firstName: "Test" });
+        .send({ firstName: "Dainz" });
 
       expect(response.status).toBe(400);
       expect(response.body.error).toBeDefined();
