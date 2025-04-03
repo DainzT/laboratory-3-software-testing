@@ -1,4 +1,4 @@
-# How to RUN OUT TEST?
+# How to RUN OUR TEST?
 ```
 Steps:
 1. Copy the url of the repository 
