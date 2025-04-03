@@ -18,7 +18,7 @@ Steps:
 
 5. now go to the path of the server folder and install all the dependencies:
     👉 execute: cd server
-    👉 execute: npm run install
+    👉 execute: npm run install or npm install
 
 6. Before running the test, make sure to create an env file for testing at the root of your folder:
      👉 add file: .env.test
@@ -27,7 +27,7 @@ Steps:
     👉 DATABASE_URL="prisma+postgres://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZmZiMWQyYTUtYTgzZS00NDNhLWI2MDktMjkzOWRmNzk4MjA5IiwidGVuYW50X2lkIjoiOGYzZGE1MjBlYjAxOWE0NzIxMDMxYjkxNjgxMzU3NGFmNjRkMDY0M2U1ZDdjMjdlZTA1Nzc3NGNiOTQyN2ZhNyIsImludGVybmFsX3NlY3JldCI6Ijg0MjliMzllLWVjOGUtNDMyOS04Y2QxLTZmZDM2MGI5YTFjZSJ9.EXwio9Gdxx1mrPl24kCsRKUCBv_RvaQwnh9gsPl14FE"
 
 7. In the server folder to run the test simply type the command in the command prompt:
-    👉 npm run test
+    👉 npm run test or npm test
 
 8. Freely explore the other option for verifying the test:
     👉 npm run test:watch -> runs the test every changes you make in the code
