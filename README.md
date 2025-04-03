@@ -29,7 +29,7 @@ Steps:
 7. In the server folder to run the test simply type the command in the command prompt:
     👉 npm run test or npm test
 
-8. Freely explore the other option for verifying the test:
+8. Freely explore other options for verifying the test:
     👉 npm run test:watch -> runs the test every changes you make in the code
     👉 npm run test:setup -> If no schema has been made in the testing db, make sure to initialize the test with the command.
     
