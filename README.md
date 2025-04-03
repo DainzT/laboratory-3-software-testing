@@ -2,13 +2,13 @@
 ```
 Steps:
 1. Copy the url of the repository 
-    👉 https://github.com/DainzT/laboratory-2-software-testing.git
+    👉 https://github.com/DainzT/laboratory-3-software-testing.git
 
 2. Open your command prompt, make sure it is in your desired folder.
    👉 To open Command Prompt, press Win + R, type cmd, and hit Enter.
 
 3. execute the command: git clone [paste the url]
-    👉 git clone https://github.com/DainzT/laboratory-2-software-testing.git
+    👉 git clone https://github.com/DainzT/laboratory-3-software-testing.git
     
 4. make sure you are in the right directory 
    👉 execute: cd laboratory-3-software-testing in your command prompt 
